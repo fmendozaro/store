@@ -10,13 +10,31 @@ public class Store {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         PrintStream out = new PrintStream(System.out);
-        String menuChoice = "y";
+        String menuChoice = "y", receipt = "";
+        double total = 0, subtotal = 0;
+        int qty;
 
         out.println("Welcome to the Pinnacles Store");
 
         while(menuChoice.equalsIgnoreCase("y")){
+
             showMenu(out);
-            getMenuOption(in, out);
+            switch (getMenuOption(in, out)){
+                case 1:
+                    receipt += askItem();
+                    subtotal += askPrice();
+                    qty = askQty();
+                    total += qty * subtotal;
+                    break;
+                case 2:
+                    printReceipt();
+                    break;
+                case 3:
+                    System.exit(0);
+                default:
+                    System.out.println("Adios amigo!");
+            }
+
             out.println("Continue? (y/n)");
             menuChoice = in.nextLine();
         }
@@ -35,4 +53,6 @@ public class Store {
         in.nextLine();
         return option;
     }
+
+
 }
