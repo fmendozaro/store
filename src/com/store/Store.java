@@ -16,18 +16,23 @@ public class Store {
 
         while(menuChoice.equalsIgnoreCase("y")){
             showMenu(out);
+            getMenuOption(in, out);
             out.println("Continue? (y/n)");
             menuChoice = in.nextLine();
         }
-
-
 
     }
 
     public static void showMenu(PrintStream out){
         out.println("Please select an option:");
-        out.println("A) Sale");
-        out.println("B) Print receipt");
-        out.println("C) Exit");
+        out.println("1) Sale");
+        out.println("2) Print receipt");
+        out.println("3) Exit");
+    }
+
+    public static int getMenuOption(Scanner in, PrintStream out){
+        int option = in.nextInt();
+        in.nextLine();
+        return option;
     }
 }
