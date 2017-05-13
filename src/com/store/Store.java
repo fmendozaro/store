@@ -12,7 +12,8 @@ public class Store {
         PrintStream out = new PrintStream(System.out);
         String menuChoice = "y", receipt = "";
         double total = 0, subtotal = 0;
-        int qty;
+        int qty, itemNo = 1;
+
 
         out.println("Welcome to the Pinnacles Store");
 
@@ -21,13 +22,14 @@ public class Store {
             showMenu(out);
             switch (getMenuOption(in, out)){
                 case 1:
-                    receipt += askItem();
-                    subtotal += askPrice();
-                    qty = askQty();
+                    receipt += itemNo + ". " + askItem(in, out) + "\n";
+                    subtotal += askPrice(in, out);
+                    qty = askQty(in, out);
                     total += qty * subtotal;
                     break;
                 case 2:
-                    printReceipt();
+                    receipt += "\n Total: $" + String.format("%,.2f", total);
+                    out.println(receipt);
                     break;
                 case 3:
                     System.exit(0);
@@ -52,6 +54,19 @@ public class Store {
         int option = in.nextInt();
         in.nextLine();
         return option;
+    }
+
+    public static String askItem(Scanner in, PrintStream out){
+        out.println("Which item you want to take?");
+        return in.nextLine();
+    }
+
+    public static double askPrice(Scanner in, PrintStream out){
+        return 0;
+    }
+
+    public static int askQty(Scanner in, PrintStream out){
+        return 1;
     }
 
 
