@@ -10,8 +10,8 @@ public class Store {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         PrintStream out = new PrintStream(System.out);
-        String menuChoice = "y", receipt = "";
-        double total = 0, subtotal = 0;
+        String menuChoice = "y", receipt = "", item = "";
+        double total = 0, price = 0;
         int qty, itemNo = 1;
 
 
@@ -22,24 +22,31 @@ public class Store {
             showMenu(out);
             switch (getMenuOption(in, out)){
                 case 1:
-                    receipt += itemNo + ". " + askItem(in, out) + "\n";
-                    subtotal += askPrice(in, out);
+                    item = askItem(in, out);
+                    price = askPrice(in, out);
                     qty = askQty(in, out);
-                    total += qty * subtotal;
+                    receipt += "\n" + itemNo + ". " + qty + " x " + item + " " + currency(price);
+                    total += qty * price;
+                    itemNo++;
                     break;
                 case 2:
-                    receipt += "\n Total: $" + String.format("%,.2f", total);
+                    out.println("****************");
+                    out.println("Thanks for your business:");
+                    receipt += "\nTotal: " + currency(total);
                     out.println(receipt);
                     break;
                 case 3:
+                    System.out.println("Exiting");
                     System.exit(0);
                 default:
-                    System.out.println("Adios amigo!");
+                    System.out.println("invalid option");
             }
 
-            out.println("Continue? (y/n)");
+            out.println("Return to the main menu? (y/n)");
             menuChoice = in.nextLine();
         }
+
+        System.out.println("Good bye amigou!");
 
     }
 
@@ -62,11 +69,19 @@ public class Store {
     }
 
     public static double askPrice(Scanner in, PrintStream out){
-        return 0;
+        out.println("What's the price?");
+        return in.nextDouble();
     }
 
     public static int askQty(Scanner in, PrintStream out){
-        return 1;
+        out.println("How many?");
+        int qty = in.nextInt();
+        in.nextLine();
+        return qty;
+    }
+
+    public static String currency(double number){
+        return "$" + String.format("%,.2f", number);
     }
 
 
