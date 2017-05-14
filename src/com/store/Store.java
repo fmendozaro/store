@@ -32,7 +32,7 @@ public class Store {
                 case 2:
                     out.println("****************");
                     out.println("Thanks for your business:");
-                    receipt += "\nTotal: " + currency(total);
+                    receipt += "\n\nTotal: " + currency(total);
                     out.println(receipt);
                     break;
                 case 3:
