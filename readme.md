@@ -1,5 +1,5 @@
 
-#Store CLI app.
+# Store CLI app.
 
 Use the best practices you learned so far using methods for this app, returning results in the main method will help. Do not use Arrays or Class Variables yet!.
 
@@ -10,7 +10,7 @@ Use the best practices you learned so far using methods for this app, returning 
 - To exit a Java CLI app you can use: ```System.exit(0);```, let the user know that they closed the app before this.
 
 
-###Bonuses:
+### Bonuses:
 
 - Ask for the client's name and show it in the receipt.
 - Validate the numeric entries and the text ones.
