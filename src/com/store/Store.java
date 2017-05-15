@@ -7,7 +7,9 @@ import java.util.Scanner;
  * Created by Fer on 5/13/2017.
  */
 public class Store {
+
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
         PrintStream out = new PrintStream(System.out);
         String menuChoice = "y", receipt = "", item = "";
