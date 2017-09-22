@@ -32,10 +32,11 @@ public class Store {
                     itemNo++;
                     break;
                 case 2:
-                    out.println("****************");
-                    out.println("Thanks for your business:");
-                    receipt += "\n\nTotal: " + currency(total);
+                    out.println("\n****************");
+                    out.println("\nThanks for your shopping at Fer-Mart");
+                    out.println("Your items:");
                     out.println(receipt);
+                    out.println("\n\nTotal: " + currency(total));
                     break;
                 case 3:
                     System.out.println("Exiting");
