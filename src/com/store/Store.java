@@ -16,7 +16,6 @@ public class Store {
         double total = 0, price = 0;
         int qty, itemNo = 1;
 
-
         out.println("Welcome to the Pinnacles Store");
 
         while(menuChoice.equalsIgnoreCase("y")){
@@ -33,7 +32,7 @@ public class Store {
                     break;
                 case 2:
                     out.println("\n****************");
-                    out.println("\nThanks for your shopping at Fer-Mart");
+                    out.println("\nThanks for your shopping at Fer-Mart\n");
                     out.println("Your items:");
                     out.println(receipt);
                     out.println("\n\nTotal: " + currency(total));
@@ -67,17 +66,17 @@ public class Store {
     }
 
     public static String askItem(Scanner in, PrintStream out){
-        out.println("Which item you want to take?");
+        out.println("Name of the item:");
         return in.nextLine();
     }
 
     public static double askPrice(Scanner in, PrintStream out){
-        out.println("What's the price?");
+        out.println("Price:");
         return in.nextDouble();
     }
 
     public static int askQty(Scanner in, PrintStream out){
-        out.println("How many?");
+        out.println("Quantity:");
         int qty = in.nextInt();
         in.nextLine();
         return qty;
